@@ -1,0 +1,9 @@
+.venv/
+.env
+__pycache__/
+.pytest_cache/
+screenshots/
+*.pyc
+.idea/
+.vscode/
+drivers/
