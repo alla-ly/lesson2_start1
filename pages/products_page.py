@@ -9,6 +9,7 @@ class ProductsPage:
     TITLE = (By.CSS_SELECTOR, "[data-test='title']")
     PRODUCT_NAMES = (By.CSS_SELECTOR, "[data-test='inventory-item-name']")
     CART_BADGE = (By.CSS_SELECTOR, "[data-test='shopping-cart-badge']")
+    CART_LINK = (By.CSS_SELECTOR, "[data-test='shopping-cart-link']")
     SORT_SELECT = (By.CSS_SELECTOR, "[data-test='product-sort-container']")
 
     def __init__(self, driver):
@@ -39,6 +40,9 @@ class ProductsPage:
         # бейджа нет в DOM, пока корзина пуста — это не ошибка, а 0
         badges = self.driver.find_elements(*self.CART_BADGE)
         return int(badges[0].text) if badges else 0
+
+    def open_cart(self):
+        self.wait.until(EC.element_to_be_clickable(self.CART_LINK)).click()
 
     def select_sort(self, value):
         # <select> перерисовывается после выбора, поэтому каждый раз ищем его заново
