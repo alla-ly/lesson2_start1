@@ -1,8 +1,14 @@
+import logging
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select, WebDriverWait
 
 from config import TIMEOUT
+
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 
 class ProductsPage:
@@ -25,6 +31,7 @@ class ProductsPage:
 
     # product_slug — часть id кнопки, например "sauce-labs-backpack"
     def add_to_cart(self, product_slug):
+        logger.info("Add to cart: %s", product_slug)
         button = (By.ID, f"add-to-cart-{product_slug}")
         self.wait.until(EC.element_to_be_clickable(button)).click()
 
@@ -42,6 +49,7 @@ class ProductsPage:
         return int(badges[0].text) if badges else 0
 
     def open_cart(self):
+        logger.info("Open cart")
         self.wait.until(EC.element_to_be_clickable(self.CART_LINK)).click()
 
     def select_sort(self, value):

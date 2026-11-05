@@ -1,3 +1,4 @@
+
 from config import PASSWORD, USERNAME
 from pages.login_page import LoginPage
 from pages.products_page import ProductsPage

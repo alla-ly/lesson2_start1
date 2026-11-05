@@ -1,8 +1,14 @@
+import logging
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 from config import BASE_URL, TIMEOUT
+
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 
 class LoginPage:
@@ -20,6 +26,7 @@ class LoginPage:
         return self
 
     def login(self, username, password):
+        logger.info("Login: start")
         self.wait.until(EC.visibility_of_element_located(self.USERNAME_INPUT)).send_keys(username)
         self.driver.find_element(*self.PASSWORD_INPUT).send_keys(password)
         self.driver.find_element(*self.LOGIN_BUTTON).click()
