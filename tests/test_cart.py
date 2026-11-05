@@ -16,7 +16,7 @@ def test_add_product_to_cart(driver):
     assert products.get_cart_count() == 1
 
 
-def test_backpack_in_cart(driver):
+def test_backpack_is_in_cart(driver):
     LoginPage(driver).open().login(USERNAME, PASSWORD)
     products = ProductsPage(driver)
 
