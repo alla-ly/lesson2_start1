@@ -26,7 +26,7 @@ class ProductsPage:
         return self.wait.until(EC.visibility_of_element_located(self.TITLE)).text
 
     def get_product_names(self):
-        self.wait.until(EC.visibility_of_element_located(self.TITLE))
+        self.wait.until(EC.presence_of_element_located(self.PRODUCT_NAMES))
         return [element.text for element in self.driver.find_elements(*self.PRODUCT_NAMES)]
 
     # product_slug — часть id кнопки, например "sauce-labs-backpack"
