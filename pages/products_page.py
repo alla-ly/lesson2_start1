@@ -8,7 +8,6 @@ from config import TIMEOUT
 
 
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
 
 
 class ProductsPage:

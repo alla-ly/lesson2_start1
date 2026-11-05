@@ -1,0 +1,3 @@
+[32mINFO    [0m pages.login_page:login_page.py:29 Login: start
+[32mINFO    [0m pages.products_page:products_page.py:34 Add to cart: sauce-labs-backpack
+[32mINFO    [0m pages.products_page:products_page.py:52 Open cart
